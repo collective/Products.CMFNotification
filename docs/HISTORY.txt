@@ -4,7 +4,11 @@ Changelog
 2.3b3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Complete uninstall profile.
+  [thet]
+
+- Add plone.app.kss for Plone 4.3+ compatiblity.
+  [thet]
 
 
 2.3b2 (2012-07-02)

@@ -3,6 +3,5 @@
   <portlet addview="portlets.Subscription"
            title="Subscription portlet"
            description="A portlet that lets user subscribe to content."
-           remove="true"
-	   />
+           remove="true"/>
 </portlets>
