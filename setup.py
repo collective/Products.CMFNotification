@@ -31,6 +31,7 @@ setup(
     install_requires=(
         'setuptools',
         'Plone >= 3.0',
+        'plone.app.kss',
         ),
     entry_points="""
     [z3c.autoinclude.plugin]
