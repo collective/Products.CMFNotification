@@ -57,6 +57,9 @@ from Products.CMFNotification.interfaces import INotificationDelivery
 from Products.ATContentTypes.interface.interfaces import IATContentType
 from Products.CMFPlone.interfaces import IPloneSiteRoot
 
+from plone.dexterity.interfaces import IDexterityContent
+
+
 ID = 'portal_notification'
 TITLE = 'CMF Notification tool'
 META_TYPE = 'CMFNotificationTool'
@@ -671,7 +674,8 @@ class NotificationTool(UniqueObject, SimpleItem, PropertyManager):
 
     def _getUID(self, obj):
         """Return UID of the object."""
-        if not IATContentType.providedBy(obj):
+        if not IATContentType.providedBy(obj) and not\
+           IDexterityContent.providedBy(obj):
             return None
 
         portal_uidhandler = getToolByName(self, 'portal_uidhandler')
@@ -759,7 +763,10 @@ class NotificationTool(UniqueObject, SimpleItem, PropertyManager):
         """Return whether the current user is allowed to subscribe to
         or unsubscribe from ``obj``.
         """
+        return True
+
         if not IATContentType.providedBy(obj) and not \
+                IDexterityContent.providedBy(obj) and not \
                 IPloneSiteRoot.providedBy(obj):
             return False
 
