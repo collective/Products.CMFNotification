@@ -14,24 +14,7 @@ from plone.portlets.interfaces import IPortletAssignmentMapping
 from Products.CMFNotification.config import LAYER_NAME
 from Products.CMFNotification.config import PORTLET_NAME
 from Products.CMFNotification.config import PROJECT_NAME
-from Products.CMFNotification.exportimport import addPermissions
 from Products.CMFNotification.NotificationTool import ID as TOOL_ID
-
-
-def install(context):
-    """Install CMFNotification.
-
-    Most of the job is done by a Generic Setup profile.
-    """
-    ## I do not know how (and if it is possible) to define that an
-    ## import step is a dependency of the 'rolemap' step.
-    addPermissions(context)
-
-    ## Import GenericSetup default profile
-    setup_tool = getToolByName(context, 'portal_setup')
-    setup_tool.runAllImportStepsFromProfile('profile-Products.CMFNotification:default')
-
-    return 'Successfully installed %s.' % PROJECT_NAME
 
 
 def uninstall(context):

@@ -1,8 +1,23 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:setup="http://namespaces.zope.org/genericsetup"
            xmlns:five="http://namespaces.zope.org/five"
+           xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
            xmlns:cmf="http://namespaces.zope.org/cmf"
            i18n_domain="cmfnotification">
+
+    <genericsetup:importStep
+        name="import_cmfnotification"
+        title="Import CMF Notification settings"
+        description=""
+        handler="Products.CMFNotification.exportimport.importCMFNotification">
+      <depends name="toolset"/>
+    </genericsetup:importStep>
+
+    <genericsetup:importStep
+        name="import_cmfnotification_portlet"
+        title="Add subscription portlet"
+        description=""
+        handler="Products.CMFNotification.exportimport.addPortlet"/>
 
     <!-- Browser-related configuration (portlets, etc.) -->
     <include package=".browser"/>

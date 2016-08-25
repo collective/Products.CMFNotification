@@ -12,6 +12,8 @@ Changelog
 
 - Add dexterity support [cillianderoiste]
 
+- Fix installation on Plone 5 [cillianderoiste]
+
 
 2.3b2 (2012-07-02)
 ------------------
