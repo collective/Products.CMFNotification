@@ -27,7 +27,7 @@ def importCMFNotification(context):
     """Import CMFNotification tool properties."""
     site = context.getSite()
     logger = context.getLogger('CMFNotification')
-    ntool = getToolByName(site, 'portal_notification')
+    ntool = getToolByName(site, 'portal_notification', None)
 
     body = context.readDataFile(_FILENAME)
     if body is None:

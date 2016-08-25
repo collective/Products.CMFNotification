@@ -6,7 +6,7 @@
            i18n_domain="cmfnotification">
 
     <genericsetup:importStep
-        name="import_cmfnotification"
+        name="cmfnotification"
         title="Import CMF Notification settings"
         description=""
         handler="Products.CMFNotification.exportimport.importCMFNotification">
@@ -14,7 +14,7 @@
     </genericsetup:importStep>
 
     <genericsetup:importStep
-        name="import_cmfnotification_portlet"
+        name="cmfnotification_portlet"
         title="Add subscription portlet"
         description=""
         handler="Products.CMFNotification.exportimport.addPortlet"/>
