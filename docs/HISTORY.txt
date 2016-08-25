@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.3b3 (unreleased)
+2.3b3 (2016-08-25)
 ------------------
 
 - Complete uninstall profile.
