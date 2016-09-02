@@ -680,8 +680,7 @@ class NotificationTool(UniqueObject, SimpleItem, PropertyManager):
 
         portal_uidhandler = getToolByName(self, 'portal_uidhandler')
         uid = portal_uidhandler.queryUid(obj, None)
-        if uid is None: ## Not yet registered
-            uid = portal_uidhandler.register(obj)
+        # it should only register on subscribe. CSRF!
         return uid
 
 
@@ -742,6 +741,8 @@ class NotificationTool(UniqueObject, SimpleItem, PropertyManager):
     def _updateSubscriptionMapping(self, obj):
         """Update subscription mapping."""
         uid = self._getUID(obj)
+        if uid is None: ## Not yet registered
+            uid = portal_uidhandler.register(obj)
         if not uid:
             return
 
