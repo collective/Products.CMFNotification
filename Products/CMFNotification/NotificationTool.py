@@ -742,6 +742,7 @@ class NotificationTool(UniqueObject, SimpleItem, PropertyManager):
         """Update subscription mapping."""
         uid = self._getUID(obj)
         if uid is None: ## Not yet registered
+            portal_uidhandler = getToolByName(self, 'portal_uidhandler')
             uid = portal_uidhandler.register(obj)
         if not uid:
             return
