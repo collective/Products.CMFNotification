@@ -4,7 +4,7 @@ Changelog
 2.4b3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- This is actually implementing what b2 claimed to do.
 
 
 2.4b2 (2016-09-05)
