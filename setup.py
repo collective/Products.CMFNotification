@@ -2,7 +2,7 @@ import os
 from setuptools import find_packages
 from setuptools import setup
 
-version = '2.4b2'
+version = '2.4b3.dev0'
 description = open('README.txt').read().strip()
 long_description = '\n\n'.join((
         open(os.path.join(
