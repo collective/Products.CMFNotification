@@ -738,10 +738,10 @@ class NotificationTool(UniqueObject, SimpleItem, PropertyManager):
     #################################################################
     ## Extra subscriptions logic
     ############################
-    def _updateSubscriptionMapping(self, obj):
+    def _updateSubscriptionMapping(self, obj, register=False):
         """Update subscription mapping."""
         uid = self._getUID(obj)
-        if uid is None: ## Not yet registered
+        if uid is None and register is not False:  # Not yet registered
             portal_uidhandler = getToolByName(self, 'portal_uidhandler')
             uid = portal_uidhandler.register(obj)
         if not uid:
@@ -795,7 +795,7 @@ class NotificationTool(UniqueObject, SimpleItem, PropertyManager):
             ## we raise an exception.
             raise NotImplementedError
         else:
-            self._updateSubscriptionMapping(obj)
+            self._updateSubscriptionMapping(obj, register=True)
             path = self._getPath(obj)
             subscribers = self._subscriptions.get(path, {})
             user = getSecurityManager().getUser().getId()
