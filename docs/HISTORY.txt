@@ -4,7 +4,8 @@ Changelog
 2.4b2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- don't do registration on getUID, do it on subscribe, when we can protect 
+  it with a plone.procect token. CSRF [pilz]
 
 
 2.4b1 (2016-09-02)
