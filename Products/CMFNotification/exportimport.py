@@ -63,6 +63,9 @@ def exportCMFNotification(context):
 
 def addPortlet(context):
     """Add CMFNotification portlet to the right column."""
+    if not context.readDataFile(_FILENAME):
+        return
+
     portal = context.getSite()
     rightColumn = getUtility(IPortletManager,
                              name=u'plone.rightcolumn',
