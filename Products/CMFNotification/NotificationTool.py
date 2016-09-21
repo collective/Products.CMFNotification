@@ -880,7 +880,6 @@ class NotificationTool(UniqueObject, SimpleItem, PropertyManager):
         if email is None:
             ## Yes, 'email' is actually the id of the current user.
             email = getSecurityManager().getUser().getId()
-        self._updateSubscriptionMapping(obj)
         path = self._getPath(obj)
         subscribers = self.getExtraSubscribersOf(path,
                                                  as_if_not_recursive)

@@ -4,6 +4,7 @@ Changelog
 2.4b4 (unreleased)
 ------------------
 
+- Avoid write on read when calling isSubscribedTo
 - The import step to add the portlet looks for the marker file
   [ale-rt]
 
