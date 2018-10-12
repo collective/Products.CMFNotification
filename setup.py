@@ -3,11 +3,15 @@ from setuptools import find_packages
 from setuptools import setup
 
 version = '2.4b5.dev0'
-description = open('README.txt').read().strip()
+description = open('README.rst').read().strip()
 long_description = '\n\n'.join((
-        open(os.path.join(
-        'Products', 'CMFNotification', 'README.txt')).read().strip(),
-        open(os.path.join("docs", "HISTORY.txt")).read().strip()))
+    open(os.path.join(
+        'Products',
+        'CMFNotification',
+        'README.txt',
+    )).read().strip(),
+    open(os.path.join("docs", "HISTORY.txt")).read().strip(),
+))
 
 setup(
     name='Products.CMFNotification',
@@ -15,10 +19,13 @@ setup(
     description=description,
     long_description=long_description,
     classifiers=(
-        'Framework :: Plone',
         'Programming Language :: Python',
+        'Programming Language :: Python :: 2.7',
         'Development Status :: 5 - Production/Stable',
-        ),
+        'Framework :: Plone',
+        'Framework :: Plone :: 5.0',
+        'Framework :: Plone :: 5.1',
+    ),
     keywords='CMFNotification plone notification e-mail',
     author='Pilot Systems',
     author_email='ploneorg@pilotsystems.net',
@@ -30,8 +37,8 @@ setup(
     zip_safe=False,
     install_requires=(
         'setuptools',
-        'Plone >= 3.0',
-        ),
+        'Plone >= 5.0',
+    ),
     extras_require={
         'test': [
             'Products.PloneTestCase',
@@ -41,4 +48,4 @@ setup(
     [z3c.autoinclude.plugin]
     target = plone
     """,
-    )
+)
