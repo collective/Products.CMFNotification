@@ -10,7 +10,7 @@ long_description = '\n\n'.join((
         'CMFNotification',
         'README.txt',
     )).read().strip(),
-    open(os.path.join("docs", "HISTORY.txt")).read().strip(),
+    open(os.path.join("CHANGES.rst")).read().strip(),
 ))
 
 setup(

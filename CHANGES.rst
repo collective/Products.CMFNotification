@@ -4,7 +4,8 @@ Changelog
 2.4b5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Drop hard dependency on plone.app.kss
+- Drop compatibility with Plone 4
 
 
 2.4b4 (2016-12-02)
