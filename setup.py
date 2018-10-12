@@ -31,7 +31,6 @@ setup(
     install_requires=(
         'setuptools',
         'Plone >= 3.0',
-        'plone.app.kss',
         ),
     extras_require={
         'test': [
