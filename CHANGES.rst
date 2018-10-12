@@ -1,8 +1,8 @@
 Changelog
 =========
 
-2.4b5 (unreleased)
-------------------
+3.0.0a1 (2018-10-12)
+--------------------
 
 - Drop hard dependency on plone.app.kss
 - Drop compatibility with Plone 4
