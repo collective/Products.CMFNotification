@@ -1,5 +1,6 @@
 <configure xmlns:plone="http://namespaces.plone.org/plone"
-           xmlns:browser="http://namespaces.zope.org/browser">
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:zcml="http://namespaces.zope.org/zcml">
 
   <include package="Products.CMFCore" file="configure.zcml" />
   
@@ -38,35 +39,9 @@
      permission="zope2.View"
      />
 
-  <!-- Subscription KSS actions -->
-  <browser:page
-     for="*"
-     name="kssSubscribe"
-     class=".subscription.KSSActions"
-     attribute="subscribe"
-     permission="zope2.View"
-     />
 
-  <browser:page
-     for="*"
-     name="kssUnsubscribe"
-     class=".subscription.KSSActions"
-     attribute="unsubscribe"
-     permission="zope2.View"
-     />
-
-  <browser:page
-     for="*"
-     name="kssUnsubscribeFromAbove"
-     class=".subscription.KSSActions"
-     attribute="unsubscribeFromAbove"
-     permission="zope2.View"
-     />
-
-  <!-- KSS stylesheet -->
-  <browser:resource
-     name="cmfnotification.kss"
-     file="resources/cmfnotification.kss"/>
+  <!-- KSS -->
+  <include zcml:condition="installed kss.core" file="kss_support.zcml" />
 
   <!-- CSS stylesheet -->
   <browser:resource
