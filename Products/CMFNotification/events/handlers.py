@@ -4,11 +4,8 @@ See ``events.txt`` for further details.
 
 $Id$
 """
-
 from Products.CMFCore.utils import getToolByName
-
 from Products.CMFNotification.NotificationTool import ID
-
 import transaction
 
 

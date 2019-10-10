@@ -4,8 +4,8 @@ Changelog
 3.0.0a2 (unreleased)
 --------------------
 
-- Nothing changed yet.
-
+- Plone 5.2 / Zope 4 fixes.
+  [thet]
 
 3.0.0a1 (2018-10-12)
 --------------------
