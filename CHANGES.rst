@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.0.0a2 (unreleased)
+3.0.0a2 (2020-03-27)
 --------------------
 
 - Plone 5.2 / Zope 4 fixes.
