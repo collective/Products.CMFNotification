@@ -1,10 +1,10 @@
+# coding=utf-8
+from Products.CMFCore.utils import getToolByName
+from Products.CMFNotification.browser.interfaces import IUnsubscribeMenuConfiglet  # noqa: E501
+from Products.Five import BrowserView
+from Products.statusmessages.interfaces import IStatusMessage
 from zope.interface import implements
 
-from Products.Archetypes.utils import addStatusMessage
-from Products.Five import BrowserView
-from Products.CMFCore.utils import getToolByName
-from Products.CMFNotification.browser.interfaces import \
-        IUnsubscribeMenuConfiglet
 
 class UnsubscribeMenuConfiglet(BrowserView):
     """Configlet to allow admins to unsubscribe users
@@ -59,8 +59,8 @@ class UnsubscribeMenuConfiglet(BrowserView):
                         self.deleteUserOnPath(subscriptions,
                                               userid,
                                               path)
-        addStatusMessage(self.request,
-                         "User(s) unsubscribed successfully",
-                         type='info')
+        IStatusMessage(self.request).addStatusMessage(
+            "User(s) unsubscribed successfully", type="info"
+        )
         url = "%s/notification_controlpanel" % self.context.absolute_url()
         self.request.RESPONSE.redirect(url)

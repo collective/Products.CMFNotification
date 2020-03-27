@@ -1,6 +1,4 @@
 <configure xmlns="http://namespaces.zope.org/zope"
-           xmlns:setup="http://namespaces.zope.org/genericsetup"
-           xmlns:five="http://namespaces.zope.org/five"
            xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
            xmlns:cmf="http://namespaces.zope.org/cmf"
            xmlns:zcml="http://namespaces.zope.org/zcml"
@@ -40,7 +38,7 @@
         />
 
     <!-- Generic Setup profile -->
-    <setup:registerProfile
+    <genericsetup:registerProfile
         name="default"
         title="CMFNotification"
         directory="profiles/default"
@@ -49,19 +47,12 @@
         />
 
     <!-- Generic Setup uninstall profile -->
-    <setup:registerProfile
+    <genericsetup:registerProfile
         name="uninstall"
         title="CMFNotification GS Uninstall"
         directory="profiles/uninstall"
         description="Remove CMFNotification"
         provides="Products.GenericSetup.interfaces.EXTENSION"
-        />
-
-
-    <!-- Allow for GenericSetup import/export -->
-    <five:implements
-        class="Products.CMFNotification.NotificationTool.NotificationTool"
-        interface="Products.CMFPlone.interfaces.ISimpleItemWithProperties"
         />
 
     <permission

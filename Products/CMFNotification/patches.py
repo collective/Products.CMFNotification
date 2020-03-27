@@ -35,8 +35,9 @@ def notifyMemberModified(self):
         member = membership.getMemberById(self.getId())
         ntool.onMemberModification(member)
 
-from Products.CMFCore.MemberDataTool import MemberData
-MemberData._cmf_notification_orig_notifyModified = MemberData.notifyModified
-MemberData.notifyModified = notifyMemberModified
+# TODO: Instead of patching, better use a more specific adapter.
+from Products.CMFCore.MemberDataTool import MemberAdapter
+MemberAdapter._cmf_notification_orig_notifyModified = MemberAdapter.notifyModified
+MemberAdapter.notifyModified = notifyMemberModified
 LOG.info('Monkey-patched CMFCore.MemberDataTool')
 ######### End of CMFCore.MemberDataTool patch ###################

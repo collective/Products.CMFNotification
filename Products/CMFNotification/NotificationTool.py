@@ -27,7 +27,7 @@ import inspect
 import logging
 from types import StringType
 
-from Globals import InitializeClass
+from App.class_init import InitializeClass
 from OFS.SimpleItem import SimpleItem
 from ZODB.POSException import ConflictError
 from OFS.PropertyManager import PropertyManager
@@ -54,10 +54,24 @@ from Products.CMFNotification.exceptions import InvalidEmailAddress
 from Products.CMFNotification.permissions import SUBSCRIBE_PERMISSION
 from Products.CMFNotification.interfaces import INotificationDelivery
 
-from Products.ATContentTypes.interface.interfaces import IATContentType
 from Products.CMFPlone.interfaces import IPloneSiteRoot
+from zope.interface import implementer
+from zope.interface import Interface
+from Products.CMFPlone.interfaces import ISimpleItemWithProperties
 
-from plone.dexterity.interfaces import IDexterityContent
+
+class FakeInterface(Interface): pass
+
+
+try:
+    from plone.dexterity.interfaces import IDexterityContent
+except ImportError:
+    IDexterityContent = FakeInterface
+
+try:
+    from Products.ATContentTypes.interface.interfaces import IATContentType
+except ImportError:
+    IATContentType = FakeInterface
 
 
 ID = 'portal_notification'
@@ -75,6 +89,7 @@ MAIL_HOST_META_TYPES = ('Mail Host', 'Secure Mail Host', 'Maildrop Host',
     'Secure Maildrop Host')
 
 
+@implementer(ISimpleItemWithProperties)
 class NotificationTool(UniqueObject, SimpleItem, PropertyManager):
     """Main notification tool."""
     id = ID
