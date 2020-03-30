@@ -4,7 +4,8 @@ Changelog
 3.0.0a3 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Fix support for Plone5.1 and Plone5.2
+  [ale-rt]
 
 
 3.0.0a2 (2020-03-27)
