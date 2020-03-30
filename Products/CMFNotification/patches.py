@@ -36,8 +36,19 @@ def notifyMemberModified(self):
         ntool.onMemberModification(member)
 
 # TODO: Instead of patching, better use a more specific adapter.
-from Products.CMFCore.MemberDataTool import MemberAdapter
-MemberAdapter._cmf_notification_orig_notifyModified = MemberAdapter.notifyModified
-MemberAdapter.notifyModified = notifyMemberModified
+from pkg_resources import get_distribution
+from pkg_resources import parse_version
+plone_version = get_distribution('Products.CMFPlone').version
+PLONE_52 = parse_version(plone_version) >= parse_version('5.2a1')
+if PLONE_52:
+    from Products.CMFCore.MemberDataTool import MemberAdapter
+    MemberAdapter._cmf_notification_orig_notifyModified = MemberAdapter.notifyModified
+    MemberAdapter.notifyModified = notifyMemberModified
+else:
+    from Products.CMFCore.MemberDataTool import MemberData
+    MemberData._cmf_notification_orig_notifyModified = MemberData.notifyModified
+    MemberData.notifyModified = notifyMemberModified
+
+
 LOG.info('Monkey-patched CMFCore.MemberDataTool')
 ######### End of CMFCore.MemberDataTool patch ###################
