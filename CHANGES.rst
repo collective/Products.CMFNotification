@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.0.0a4 (unreleased)
+3.0.0a4 (2020-06-17)
 --------------------
 
 - Fix uninstall profile
