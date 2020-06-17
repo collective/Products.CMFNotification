@@ -26,7 +26,7 @@ setup(
         'Framework :: Plone :: 5.0',
         'Framework :: Plone :: 5.1',
     ),
-    keywords='CMFNotification plone notification e-mail',
+    keywords='CMFNotification plone notification e-mail'.split(),
     author='Pilot Systems',
     author_email='ploneorg@pilotsystems.net',
     url='http://plone.org/products/cmfnotification',
