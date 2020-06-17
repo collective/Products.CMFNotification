@@ -4,7 +4,8 @@ Changelog
 3.0.0a4 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Fix uninstall profile
+  [ale-rt]
 
 
 3.0.0a3 (2020-03-30)
